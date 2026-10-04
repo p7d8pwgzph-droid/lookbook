@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Все вещи — гардероб</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+@font-face{font-family:"Script";src:local("Annabelle Cyr"),local("Annabelle"),local("AnnabelleCyr");}
+:root{--bg:#EAEBEA;--grid:#FAFAFA;--ink:#1A161A;--pink:#FC7BBC;--pink-d:#E2569F;--mute:#5E575C;--paper:rgba(250,250,250,.72)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:17px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
+ background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 3px,transparent 3px),linear-gradient(90deg,var(--grid) 3px,transparent 3px);
+ background-size:72px 72px;background-position:-20px -14px;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.script{font-family:"Script","Great Vibes","Snell Roundhand",cursive;color:var(--pink);font-weight:400;letter-spacing:0}
+.big{font-weight:700;letter-spacing:-.05em;line-height:.9;text-transform:uppercase;margin:0}
+.dash{border:3px dashed var(--pink);border-radius:34px}
+.u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.pink{color:var(--pink)}
+.star{position:absolute;color:var(--pink);width:110px;height:110px;pointer-events:none}
+.star svg{width:100%;height:100%}
+
+/* шапка */
+.menu{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:4px 0 0}.menu a{font:700 16px 'Helvetica Neue',sans-serif;color:var(--ink);text-decoration:none;padding:9px 20px;border-radius:999px;border:2px dashed var(--pink);background:var(--paper)}.menu a.on{background:var(--ink);color:#fff;border:2px solid var(--ink)}
+.day .pair{display:flex;justify-content:center;gap:2px;margin:6px 0 2px}.day .pair img{height:150px;margin:0}.day .two{position:absolute;top:10px;right:10px;background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;transform:rotate(4deg)}
+.variants{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}.variants button{font:700 14px 'Helvetica Neue',sans-serif;padding:8px 16px;border-radius:999px;border:2px dashed var(--pink);background:#fff;color:var(--ink);cursor:pointer}.variants button.on{background:var(--pink);border-style:solid;color:#fff}.real{display:inline-block;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;margin-left:8px;vertical-align:middle;border-radius:999px}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:34px 0 10px}
+.oval{justify-self:start;border:2px solid #C82828;border-radius:50%;padding:10px 30px;font-weight:500;font-size:18px;white-space:nowrap}
+.mid{display:flex;align-items:center;gap:8px;line-height:1.1}.mid small{display:block;font-size:14px}.mid b{font-size:20px;letter-spacing:-.03em}
+.mid .s{width:22px;height:22px;color:var(--pink)}
+.barcode{justify-self:end;width:112px;height:58px;color:var(--ink)}.barcode text{font:700 10px "Helvetica Neue",sans-serif}
+
+/* обложка */
+.hero{position:relative;padding:24px 0 30px}
+.hero-title{position:relative;padding:26px clamp(10px,2.5vw,24px) 10px;margin-top:10px}
+.hero h1{font-size:clamp(40px,13.5vw,190px);text-align:center}
+.hero .script{display:block;text-align:right;font-size:clamp(64px,12vw,150px);line-height:.6;margin:-.05em 2% 0 0}
+.hero-row{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;margin-top:20px}
+.hero-fig{position:relative;justify-self:center;max-width:360px}
+.hero-fig img{width:100%;display:block;filter:drop-shadow(6px 12px 14px rgba(40,30,30,.18))}
+.hero-fig:before{content:"";position:absolute;inset:-22px -26px;border:3px dashed var(--pink);border-radius:46% 46% 30% 30%/30% 30% 14% 14%}
+.q{padding:28px 32px;font-size:clamp(28px,4vw,42px);line-height:1.2;letter-spacing:-.03em;background:var(--paper)}
+.q p{margin:0}
+.intro{font-size:18px;color:var(--mute);margin:22px 4px 0;max-width:520px}
+.ticket{display:inline-block;position:relative;background:var(--pink);color:#fff;text-align:center;padding:18px 40px;font-size:26px;line-height:1.2;margin-top:26px}
+.ticket:after{content:"";position:absolute;inset:8px;border:3px dashed #fff;pointer-events:none}
+.ticket b{display:block;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+
+/* секции */
+section{position:relative;padding:60px 0 20px}
+.sec-h{position:relative;margin-bottom:34px}
+.sec-h h2{font-size:clamp(54px,10vw,128px)}
+.sec-h .script{position:relative;display:block;text-align:right;font-size:clamp(46px,7vw,92px);line-height:.6;margin-top:-.12em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{padding:26px 28px;background:var(--paper)}
+.card small{font-size:15px;color:var(--mute)}
+.card h3{margin:2px 0 12px;font-size:32px;letter-spacing:-.03em}
+.card p{margin:0}
+.num{font-weight:700;font-size:110px;line-height:.8;color:var(--pink);letter-spacing:-.05em}
+.pal{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.pal span{width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--pink)}
+
+/* календарь */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+.filters button{font:500 16px "Helvetica Neue",sans-serif;padding:10px 20px;border-radius:999px;border:2px dashed var(--pink);background:var(--paper);color:var(--ink);cursor:pointer}
+.filters button.on{background:var(--pink);border-style:solid;color:#fff}
+.wd-row,.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.wd-row div{font-weight:700;text-transform:uppercase;letter-spacing:-.02em;font-size:15px;padding:0 6px 8px}
+.wd-row div:nth-child(n+6){color:var(--pink)}
+.day{position:relative;background:var(--paper);border:2.5px dashed var(--pink);border-radius:22px;padding:10px 8px 8px;min-height:250px;cursor:pointer;display:flex;flex-direction:column;align-items:center;transition:transform .15s,box-shadow .15s;font:inherit;color:inherit;text-align:center}
+.day:hover{transform:translateY(-3px) rotate(-.4deg);box-shadow:0 10px 24px rgba(40,30,30,.12)}
+.day:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.day .d{align-self:flex-start;font-weight:700;font-size:34px;letter-spacing:-.05em;line-height:1}
+.day .c{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-top:6px;border-top:1.5px dashed var(--pink);padding-top:5px;width:100%}
+.day img{height:165px;width:auto;max-width:100%;object-fit:contain;margin:6px 0 2px;filter:drop-shadow(3px 6px 6px rgba(40,30,30,.16))}
+.day .t{font-family:"Script","Great Vibes","Snell Roundhand",cursive;color:var(--pink);font-size:25px;line-height:1;margin-top:auto}
+.day.empty{background:transparent;border-color:transparent;cursor:default}
+.day.dim{opacity:.22;filter:grayscale(1)}
+.day.today{border:3px solid var(--ink);background:#fff}
+.day.today:after{content:"сегодня";position:absolute;top:-14px;right:-8px;background:var(--pink);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;transform:rotate(6deg)}
+.hint{color:var(--mute);font-size:15px;margin:14px 2px 0}
+
+/* окно образа */
+dialog{border:0;padding:0;background:transparent;max-width:min(1040px,94vw);width:100%;color:var(--ink)}
+dialog::backdrop{background:rgba(26,22,26,.6)}
+.sheet{position:relative;background-color:var(--bg);background-image:linear-gradient(var(--grid) 3px,transparent 3px),linear-gradient(90deg,var(--grid) 3px,transparent 3px);background-size:60px 60px;border-radius:26px;padding:30px;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;max-height:92vh;overflow:auto}
+.sheet .fig{position:relative;align-self:start;text-align:center}
+.sheet .fig img{max-height:70vh;max-width:100%;filter:drop-shadow(6px 12px 14px rgba(40,30,30,.18))}
+.sheet .fig .views{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.sheet .fig .views button{font:500 14px "Helvetica Neue",sans-serif;padding:7px 14px;border-radius:999px;border:2px dashed var(--pink);background:#fff;cursor:pointer;color:var(--ink)}
+.sheet .fig .views button.on{background:var(--ink);color:#fff;border:2px solid var(--ink)}
+.sheet h2{font-size:clamp(46px,7vw,78px);margin:0}
+.sheet .st{font-family:"Script","Great Vibes","Snell Roundhand",cursive;color:var(--pink);font-size:clamp(40px,5vw,60px);line-height:.8;margin:-6px 0 10px;display:block}
+.sheet .meta{font-weight:500;color:var(--mute);margin-bottom:16px}
+.items{padding:16px 18px;background:var(--paper)}
+.items ul{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.items li{text-align:center;font-size:13px;line-height:1.25}
+.items li img{display:block;height:96px;width:100%;object-fit:contain;margin-bottom:4px;border-radius:10px}
+.how{margin-top:18px}
+.how h4{margin:0 0 4px;font-size:26px;letter-spacing:-.03em;text-decoration:underline;text-decoration-thickness:2.5px;text-underline-offset:5px}
+.close{position:absolute;top:14px;right:16px;width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:24px;cursor:pointer;z-index:2}
+.nav{display:flex;gap:10px;margin-top:20px}
+.nav button{font:700 15px "Helvetica Neue",sans-serif;padding:10px 18px;border:0;background:var(--pink);color:#fff;cursor:pointer}
+
+/* финал */
+.check{list-style:none;padding:0;margin:8px 0 0}.check li{padding:8px 0 8px 40px;position:relative;font-size:19px}
+.check li:before{content:"";position:absolute;left:0;top:10px;width:24px;height:24px;border:2.5px solid var(--ink)}
+footer{position:relative;text-align:center;padding:80px 0 120px}
+footer h2{font-size:clamp(56px,11vw,150px)}
+footer .script{font-size:clamp(56px,9vw,120px);display:block;line-height:.7;margin-top:-.1em}
+
+@media (max-width:860px){
+ .hero-row{grid-template-columns:1fr}
+ .wd-row{display:none}
+ .cal{grid-template-columns:repeat(2,1fr)}
+ .day.empty{display:none}
+ .sheet{grid-template-columns:1fr;padding:22px 16px}
+ .sheet .fig img{max-height:56vh}
+}
+@media (max-width:480px){.star{width:64px;height:64px}.top{padding-top:46px;grid-template-columns:1fr auto}.barcode{display:none}.oval{padding:8px 18px;font-size:15px}.cal{grid-template-columns:1fr 1fr;gap:8px}.day{min-height:230px}}
+</style><style>
+.cnt{font-weight:700;color:var(--pink)}
+.cat-h{display:flex;align-items:baseline;gap:14px;margin:46px 0 16px}
+.cat-h h3{font-size:clamp(34px,5vw,56px);letter-spacing:-.05em;text-transform:uppercase;margin:0}
+.cat-h span{font-family:"Script","Great Vibes","Snell Roundhand",cursive;color:var(--pink);font-size:clamp(30px,4vw,44px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.it{position:relative;background:var(--paper);border:2.5px dashed var(--pink);border-radius:22px;padding:14px 14px 16px;display:flex;flex-direction:column}
+.it img{height:190px;width:100%;object-fit:contain;filter:drop-shadow(3px 6px 6px rgba(40,30,30,.16));border-radius:12px}
+.it b{display:block;margin:10px 0 6px;font-size:16px;line-height:1.25;letter-spacing:-.01em}
+.it .uses{font-size:13px;color:var(--mute);margin-top:auto}
+.it .uses a{display:inline-block;min-width:30px;text-align:center;margin:3px 3px 0 0;padding:3px 7px;border-radius:999px;background:#fff;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:700}
+.it .uses a:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+.it .new{position:absolute;top:-12px;right:-6px;background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;transform:rotate(5deg)}
+.it .zero{color:var(--pink-d);font-weight:500}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 0}
+.stats div{padding:14px 20px;background:var(--paper)}
+.stats b{display:block;font-size:40px;letter-spacing:-.05em;line-height:1}
+@media (max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:10px}.it img{height:140px}.it{padding:10px}}
+</style></head><body>
+<div class="star" style="left:-38px;top:-30px"><svg viewBox="-50 -50 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="22"><line x1="0" y1="-50" x2="0" y2="50"/><line x1="-43" y1="-25" x2="43" y2="25"/><line x1="-43" y1="25" x2="43" y2="-25"/></g></svg></div>
+<div class="wrap">
+ <header class="top">
+  <div class="oval">(октябрь) 2026</div>
+  <div class="mid"><span class="s"><svg viewBox="-50 -50 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="22"><line x1="0" y1="-50" x2="0" y2="50"/><line x1="-43" y1="-25" x2="43" y2="25"/><line x1="-43" y1="25" x2="43" y2="-25"/></g></svg></span><div><small>гардероб:</small><b>валерия</b></div></div>
+  <svg class="barcode" viewBox="-4 -4 126 64" aria-hidden="true"><rect x="-3" y="-3" width="124" height="62" fill="none" stroke="currentColor" stroke-width="1.2"/><g fill="currentColor"><rect x="0" y="0" width="1" height="40"/><rect x="4" y="0" width="4" height="40"/><rect x="9.5" y="0" width="2" height="40"/><rect x="14.5" y="0" width="3" height="40"/><rect x="20.5" y="0" width="4" height="40"/><rect x="26.0" y="0" width="4" height="40"/><rect x="31.5" y="0" width="3" height="40"/><rect x="36.5" y="0" width="4" height="40"/><rect x="42.0" y="0" width="1" height="40"/><rect x="46.0" y="0" width="3" height="40"/><rect x="52.0" y="0" width="4" height="40"/><rect x="58.0" y="0" width="3" height="40"/><rect x="64.0" y="0" width="1" height="40"/><rect x="66.5" y="0" width="1" height="40"/><rect x="70.5" y="0" width="3" height="40"/><rect x="76.5" y="0" width="1" height="40"/><rect x="80.5" y="0" width="1" height="40"/><rect x="83.0" y="0" width="4" height="40"/><rect x="88.5" y="0" width="2" height="40"/><rect x="92.0" y="0" width="2" height="40"/><rect x="96.0" y="0" width="4" height="40"/><rect x="103.0" y="0" width="3" height="40"/><rect x="109.0" y="0" width="3" height="40"/><rect x="114.0" y="0" width="4" height="40"/></g><text x="59" y="55" text-anchor="middle">lookbook</text></svg>
+ </header>
+ <nav class="menu"><a href="index.html#calendar">календарь</a><a class="on" href="items.html">все вещи</a></nav>
+
+
+ <section style="padding-top:30px">
+  <div class="sec-h"><h2 class="big">Все вещи</h2><span class="script">мой гардероб</span></div>
+  <p class="intro" style="margin:0 0 10px;color:var(--mute);max-width:640px">Весь гардероб на одной странице. Под каждой вещью — дни октября, в которые она входит в образ: нажми на число, и откроется этот день в календаре. Звёздочка — второй вариант образа.</p>
+  <div class="stats"><div class="dash"><b>42</b>вещи</div><div class="dash"><b>32</b>образа</div><div class="dash"><b>9</b>раз — самая частая: чёрные ботильоны</div><div class="dash"><b>1</b>пока без образа</div></div>
+  <div class="cat-h"><h3>верхняя одежда</h3><span>7</span></div><div class="grid"><div class="it"><img src="img/items/8383.webp" alt="" loading="lazy"><b>Длинное серое пальто в полоску</b><div class="uses">в образах (6): <br><a href="index.html#day-17" title="17 октября">17</a><a href="index.html#day-18" title="18 октября">18</a><a href="index.html#day-19" title="19 октября">19</a><a href="index.html#day-20" title="20 октября">20</a><a href="index.html#day-21" title="21 октября">21</a><a href="index.html#day-23" title="23 октября">23</a></div></div><div class="it"><img src="img/items/8378.webp" alt="" loading="lazy"><b>Серое пальто из букле</b><div class="uses">в образах (4): <br><a href="index.html#day-13" title="13 октября">13</a><a href="index.html#day-15" title="15 октября">15</a><a href="index.html#day-22" title="22 октября">22</a><a href="index.html#day-26" title="26 октября">26</a></div></div><div class="it"><img src="img/items/8365.webp" alt="" loading="lazy"><b>Кремовый тренч</b><div class="uses">в образах (5): <br><a href="index.html#day-1" title="1 октября">1</a><a href="index.html#day-5" title="5 октября">5</a><a href="index.html#day-7" title="7 октября">7</a><a href="index.html#day-8" title="8 октября">8</a><a href="index.html#day-12" title="12 октября">12</a></div></div><div class="it"><img src="img/items/8369.webp" alt="" loading="lazy"><b>Коричневая кожаная косуха</b><div class="uses">в образах (6): <br><a href="index.html#day-2" title="2 октября">2</a><a href="index.html#day-3" title="3 октября">3</a><a href="index.html#day-4" title="4 октября">4</a><a href="index.html#day-9" title="9 октября">9</a><a href="index.html#day-10" title="10 октября">10</a><a href="index.html#day-14" title="14 октября">14</a></div></div><div class="it"><img src="img/items/8380.webp" alt="" loading="lazy"><b>Бежевая дутая куртка</b><div class="uses">в образах (3): <br><a href="index.html#day-24" title="24 октября">24</a><a href="index.html#day-25" title="25 октября">25</a><a href="index.html#day-29" title="29 октября">29</a></div></div><div class="it"><img src="img/items/8335.webp" alt="" loading="lazy"><b>Коричневый жакет в полоску</b><div class="uses">в образах (3): <br><a href="index.html#day-6" title="6 октября">6</a><a href="index.html#day-11" title="11 октября">11</a><a href="index.html#day-28" title="28 октября">28</a></div></div><div class="it"><img src="img/items/8315.webp" alt="" loading="lazy"><b>Коричневый меховой жилет</b><div class="uses">в образах (3): <br><a href="index.html#day-27" title="27 октября">27</a><a href="index.html#day-30" title="30 октября">30</a><a href="index.html#day-31" title="31 октября">31</a></div></div></div><div class="cat-h"><h3>верх</h3><span>17</span></div><div class="grid"><div class="it"><span class="new">новое</span><img src="img/items/k01.webp" alt="" loading="lazy"><b>Чёрный атласный корсет с баской</b><div class="uses">в образах (1): <br><a href="index.html#day-9-2" title="9 октября (вариант 2)">9*</a></div></div><div class="it"><span class="new">новое</span><img src="img/items/k02.webp" alt="" loading="lazy"><b>Белый лонгслив-хенли</b><div class="uses">в образах (1): <br><a href="index.html#day-9-2" title="9 октября (вариант 2)">9*</a></div></div><div class="it"><img src="img/items/8341.webp" alt="" loading="lazy"><b>Молочная водолазка без рукавов</b><div class="uses">в образах (2): <br><a href="index.html#day-1" title="1 октября">1</a><a href="index.html#day-22" title="22 октября">22</a></div></div><div class="it"><img src="img/items/8363.webp" alt="" loading="lazy"><b>Чёрная водолазка без рукавов</b><div class="uses">в образах (3): <br><a href="index.html#day-19" title="19 октября">19</a><a href="index.html#day-27" title="27 октября">27</a><a href="index.html#day-30" title="30 октября">30</a></div></div><div class="it"><img src="img/items/8345.webp" alt="" loading="lazy"><b>Белая майка</b><div class="uses">в образах (2): <br><a href="index.html#day-6" title="6 октября">6</a><a href="index.html#day-13" title="13 октября">13</a></div></div><div class="it"><img src="img/items/8320.webp" alt="" loading="lazy"><b>Чёрная кружевная блуза</b><div class="uses">в образах (2): <br><a href="index.html#day-2" title="2 октября">2</a><a href="index.html#day-23" title="23 октября">23</a></div></div><div class="it"><img src="img/items/8336.webp" alt="" loading="lazy"><b>Чёрный атласный топ с кружевом</b><div class="uses">в образах (2): <br><a href="index.html#day-16" title="16 октября">16</a><a href="index.html#day-28" title="28 октября">28</a></div></div><div class="it"><img src="img/items/8327.webp" alt="" loading="lazy"><b>Голубая рубашка</b><div class="uses">в образах (4): <br><a href="index.html#day-12" title="12 октября">12</a><a href="index.html#day-13" title="13 октября">13</a><a href="index.html#day-15" title="15 октября">15</a><a href="index.html#day-25" title="25 октября">25</a></div></div><div class="it"><img src="img/items/8317.webp" alt="" loading="lazy"><b>Жёлтое поло</b><div class="uses">в образах (2): <br><a href="index.html#day-4" title="4 октября">4</a><a href="index.html#day-5" title="5 октября">5</a></div></div><div class="it"><img src="img/items/8338.webp" alt="" loading="lazy"><b>Зелёное ажурное поло</b><div class="uses">в образах (2): <br><a href="index.html#day-8" title="8 октября">8</a><a href="index.html#day-10" title="10 октября">10</a></div></div><div class="it"><img src="img/items/8351.webp" alt="" loading="lazy"><b>Коричневый лонгслив</b><div class="uses">в образах (5): <br><a href="index.html#day-3" title="3 октября">3</a><a href="index.html#day-8" title="8 октября">8</a><a href="index.html#day-10" title="10 октября">10</a><a href="index.html#day-20" title="20 октября">20</a><a href="index.html#day-31" title="31 октября">31</a></div></div><div class="it"><img src="img/items/8326.webp" alt="" loading="lazy"><b>Футболка Tennis Club</b><div class="uses">в образах (2): <br><a href="index.html#day-14" title="14 октября">14</a><a href="index.html#day-25" title="25 октября">25</a></div></div><div class="it"><img src="img/items/8352.webp" alt="" loading="lazy"><b>Футболка Strawberry Matcha</b><div class="uses">в образах (2): <br><a href="index.html#day-11" title="11 октября">11</a><a href="index.html#day-17" title="17 октября">17</a></div></div><div class="it"><img src="img/items/8330.webp" alt="" loading="lazy"><b>Серый свитер</b><div class="uses">в образах (3): <br><a href="index.html#day-21" title="21 октября">21</a><a href="index.html#day-24" title="24 октября">24</a><a href="index.html#day-26" title="26 октября">26</a></div></div><div class="it"><img src="img/items/8321.webp" alt="" loading="lazy"><b>Молочное худи</b><div class="uses">в образах (2): <br><a href="index.html#day-18" title="18 октября">18</a><a href="index.html#day-29" title="29 октября">29</a></div></div><div class="it"><img src="img/items/8311.webp" alt="" loading="lazy"><b>Бежевый ажурный кардиган</b><div class="uses">в образах (1): <br><a href="index.html#day-16" title="16 октября">16</a></div></div><div class="it"><img src="img/items/8323.webp" alt="" loading="lazy"><b>Белый кардиган с коротким рукавом</b><div class="uses">в образах (2): <br><a href="index.html#day-7" title="7 октября">7</a><a href="index.html#day-9" title="9 октября">9</a></div></div></div><div class="cat-h"><h3>низ</h3><span>7</span></div><div class="grid"><div class="it"><img src="img/items/8343.webp" alt="" loading="lazy"><b>Чёрные кожаные брюки</b><div class="uses">в образах (7): <br><a href="index.html#day-9-2" title="9 октября (вариант 2)">9*</a><a href="index.html#day-14" title="14 октября">14</a><a href="index.html#day-15" title="15 октября">15</a><a href="index.html#day-22" title="22 октября">22</a><a href="index.html#day-23" title="23 октября">23</a><a href="index.html#day-28" title="28 октября">28</a><a href="index.html#day-29" title="29 октября">29</a></div></div><div class="it"><img src="img/items/8349.webp" alt="" loading="lazy"><b>Чёрные брюки с поясом</b><div class="uses">в образах (3): <br><a href="index.html#day-6" title="6 октября">6</a><a href="index.html#day-7" title="7 октября">7</a><a href="index.html#day-27" title="27 октября">27</a></div></div><div class="it"><img src="img/items/8356.webp" alt="" loading="lazy"><b>Бежевые брюки со стрелками</b><div class="uses">в образах (6): <br><a href="index.html#day-1" title="1 октября">1</a><a href="index.html#day-5" title="5 октября">5</a><a href="index.html#day-8" title="8 октября">8</a><a href="index.html#day-12" title="12 октября">12</a><a href="index.html#day-19" title="19 октября">19</a><a href="index.html#day-21" title="21 октября">21</a></div></div><div class="it"><img src="img/items/8312.webp" alt="" loading="lazy"><b>Голубые джинсы-баллоны</b><div class="uses">в образах (8): <br><a href="index.html#day-3" title="3 октября">3</a><a href="index.html#day-4" title="4 октября">4</a><a href="index.html#day-10" title="10 октября">10</a><a href="index.html#day-11" title="11 октября">11</a><a href="index.html#day-17" title="17 октября">17</a><a href="index.html#day-18" title="18 октября">18</a><a href="index.html#day-24" title="24 октября">24</a><a href="index.html#day-25" title="25 октября">25</a></div></div><div class="it"><img src="img/items/8361.webp" alt="" loading="lazy"><b>Тёмные джинсы-клёш</b><div class="uses">в образах (5): <br><a href="index.html#day-2" title="2 октября">2</a><a href="index.html#day-9" title="9 октября">9</a><a href="index.html#day-13" title="13 октября">13</a><a href="index.html#day-16" title="16 октября">16</a><a href="index.html#day-31" title="31 октября">31</a></div></div><div class="it"><img src="img/items/8359.webp" alt="" loading="lazy"><b>Чёрная юбка-шорты</b><div class="uses">в образах (3): <br><a href="index.html#day-20" title="20 октября">20</a><a href="index.html#day-26" title="26 октября">26</a><a href="index.html#day-30" title="30 октября">30</a></div></div><div class="it"><img src="img/items/8332.webp" alt="" loading="lazy"><b>Серые вязаные шорты</b><div class="uses"><span class="zero">пока ни в одном образе</span></div></div></div><div class="cat-h"><h3>обувь</h3><span>5</span></div><div class="grid"><div class="it"><img src="img/items/8370.webp" alt="" loading="lazy"><b>Коричневые лоферы с пряжками</b><div class="uses">в образах (8): <br><a href="index.html#day-1" title="1 октября">1</a><a href="index.html#day-5" title="5 октября">5</a><a href="index.html#day-7" title="7 октября">7</a><a href="index.html#day-8" title="8 октября">8</a><a href="index.html#day-10" title="10 октября">10</a><a href="index.html#day-12" title="12 октября">12</a><a href="index.html#day-15" title="15 октября">15</a><a href="index.html#day-21" title="21 октября">21</a></div></div><div class="it"><img src="img/items/8373.webp" alt="" loading="lazy"><b>Оливковые кроссовки</b><div class="uses">в образах (6): <br><a href="index.html#day-4" title="4 октября">4</a><a href="index.html#day-11" title="11 октября">11</a><a href="index.html#day-17" title="17 октября">17</a><a href="index.html#day-24" title="24 октября">24</a><a href="index.html#day-25" title="25 октября">25</a><a href="index.html#day-29" title="29 октября">29</a></div></div><div class="it"><img src="img/items/8375.webp" alt="" loading="lazy"><b>Чёрные сапоги-трубы</b><div class="uses">в образах (4): <br><a href="index.html#day-20" title="20 октября">20</a><a href="index.html#day-26" title="26 октября">26</a><a href="index.html#day-27" title="27 октября">27</a><a href="index.html#day-30" title="30 октября">30</a></div></div><div class="it"><img src="img/items/8395.webp" alt="" loading="lazy"><b>Чёрные ботильоны</b><div class="uses">в образах (9): <br><a href="index.html#day-2" title="2 октября">2</a><a href="index.html#day-6" title="6 октября">6</a><a href="index.html#day-9-2" title="9 октября (вариант 2)">9*</a><a href="index.html#day-13" title="13 октября">13</a><a href="index.html#day-16" title="16 октября">16</a><a href="index.html#day-19" title="19 октября">19</a><a href="index.html#day-22" title="22 октября">22</a><a href="index.html#day-23" title="23 октября">23</a><a href="index.html#day-28" title="28 октября">28</a></div></div><div class="it"><img src="img/items/8399.webp" alt="" loading="lazy"><b>Коричневые ботинки</b><div class="uses">в образах (5): <br><a href="index.html#day-3" title="3 октября">3</a><a href="index.html#day-9" title="9 октября">9</a><a href="index.html#day-14" title="14 октября">14</a><a href="index.html#day-18" title="18 октября">18</a><a href="index.html#day-31" title="31 октября">31</a></div></div></div><div class="cat-h"><h3>сумки</h3><span>2</span></div><div class="grid"><div class="it"><img src="img/items/8392.webp" alt="" loading="lazy"><b>Коричневая сумка с платком</b><div class="uses">в образах (8): <br><a href="index.html#day-1" title="1 октября">1</a><a href="index.html#day-5" title="5 октября">5</a><a href="index.html#day-7" title="7 октября">7</a><a href="index.html#day-8" title="8 октября">8</a><a href="index.html#day-12" title="12 октября">12</a><a href="index.html#day-15" title="15 октября">15</a><a href="index.html#day-20" title="20 октября">20</a><a href="index.html#day-21" title="21 октября">21</a></div></div><div class="it"><img src="img/items/8394.webp" alt="" loading="lazy"><b>Рюкзак Michael Kors</b><div class="uses">в образах (7): <br><a href="index.html#day-3" title="3 октября">3</a><a href="index.html#day-4" title="4 октября">4</a><a href="index.html#day-11" title="11 октября">11</a><a href="index.html#day-17" title="17 октября">17</a><a href="index.html#day-18" title="18 октября">18</a><a href="index.html#day-24" title="24 октября">24</a><a href="index.html#day-31" title="31 октября">31</a></div></div></div><div class="cat-h"><h3>украшения и часы</h3><span>4</span></div><div class="grid"><div class="it"><img src="img/items/8384.webp" alt="" loading="lazy"><b>Серебряные часы</b><div class="uses">в образах (6): <br><a href="index.html#day-2" title="2 октября">2</a><a href="index.html#day-9-2" title="9 октября (вариант 2)">9*</a><a href="index.html#day-13" title="13 октября">13</a><a href="index.html#day-15" title="15 октября">15</a><a href="index.html#day-23" title="23 октября">23</a><a href="index.html#day-27" title="27 октября">27</a></div></div><div class="it"><img src="img/items/8386.webp" alt="" loading="lazy"><b>Колье с кристаллами</b><div class="uses">в образах (4): <br><a href="index.html#day-16" title="16 октября">16</a><a href="index.html#day-19" title="19 октября">19</a><a href="index.html#day-28" title="28 октября">28</a><a href="index.html#day-30" title="30 октября">30</a></div></div><div class="it"><img src="img/items/8387.webp" alt="" loading="lazy"><b>Серебряные серьги-кольца</b><div class="uses">в образах (4): <br><a href="index.html#day-9-2" title="9 октября (вариант 2)">9*</a><a href="index.html#day-22" title="22 октября">22</a><a href="index.html#day-26" title="26 октября">26</a><a href="index.html#day-29" title="29 октября">29</a></div></div><div class="it"><img src="img/items/8389.webp" alt="" loading="lazy"><b>Золотые серьги-волны</b><div class="uses">в образах (4): <br><a href="index.html#day-1" title="1 октября">1</a><a href="index.html#day-6" title="6 октября">6</a><a href="index.html#day-9" title="9 октября">9</a><a href="index.html#day-12" title="12 октября">12</a></div></div></div>
+ </section>
+ <footer>
+  <h2 class="big">До встречи</h2><span class="script">в ноябре</span>
+ </footer>
+</div>
+</body></html>
